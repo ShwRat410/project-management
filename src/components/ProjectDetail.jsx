@@ -1,4 +1,5 @@
 import React from 'react'
+import Task from './Task'
 
 export default function ProjectDetail({project,onDelete}) {
     console.log(project)
@@ -13,6 +14,7 @@ export default function ProjectDetail({project,onDelete}) {
             <p>{project.description}</p>
         </header>
         <p>Tasks----------------------</p>
+        <Task></Task>
     </div>
   )
 }
