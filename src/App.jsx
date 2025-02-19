@@ -27,6 +27,16 @@ function App() {
     })
   }
 
+  function handleProjectDeletion(){
+    setProjectData((prevData)=>{
+      return{
+        ...prevData,
+        selectedProject:undefined,
+        projects:prevData.projects.filter((project)=>project.id!==prevData.selectedProject)
+      }
+    })
+  }
+
   function handleProjectDetail(id){
     setProjectData((prevData)=>{
       return{
@@ -57,7 +67,7 @@ function App() {
     displayComponent=<NewProject onCancelProject={handleCancelProject} onNewProjectData={handleNewProjectData}></NewProject>
   }
   else{
-    displayComponent=<ProjectDetail project={selectedProject}></ProjectDetail>
+    displayComponent=<ProjectDetail onDelete={handleProjectDeletion} project={selectedProject}></ProjectDetail>
   }
   return (
     <main className="h-screen my-8 flex gap-8">
