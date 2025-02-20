@@ -1,8 +1,7 @@
 import React from 'react'
 import Task from './Task'
 
-export default function ProjectDetail({project,onDelete}) {
-    console.log(project)
+export default function ProjectDetail({projects,tasks,project,onDelete,onAddTask,onDeleteTask}) {
   return (
     <div>
         <header>
@@ -14,7 +13,7 @@ export default function ProjectDetail({project,onDelete}) {
             <p>{project.description}</p>
         </header>
         <p>Tasks----------------------</p>
-        <Task></Task>
+        <Task projects={projects} tasks={tasks} onAddTask={onAddTask} onDeleteTask={onDeleteTask}></Task>
     </div>
   )
 }

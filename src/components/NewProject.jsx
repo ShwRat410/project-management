@@ -16,7 +16,6 @@ export default function NewProject({onNewProjectData,onCancelProject}) {
         const enteredDescription = description.current.value
         const enteredDueDate = dueDate.current.value
         if(enteredTitle.trim()===''||enteredDescription.trim()===''||enteredDueDate.trim()===''){
-           console.log("Modal")
            modal.current.open()
            return;
         }

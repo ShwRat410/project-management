@@ -7,8 +7,28 @@ import ProjectDetail from "./components/ProjectDetail";
 function App() {
   const[projectData,setProjectData]=useState({
     selectedProject:undefined ,
-    projects:[]
+    projects:[],
+    tasks:[]
   });
+
+  function handleAddTask(enteredTask){
+    setProjectData((prevData)=>{
+      console.log(projectData)
+      const taskId=Math.random()
+      const newTask={
+        text:enteredTask,
+        projectId:prevData.selectedProject,
+        taskId:taskId
+      }
+      return{
+        ...prevData,
+        tasks:[newTask,...prevData.tasks]
+      }
+    })
+  }
+
+  function handleDeleteTask(){}
+
   function handleProjectData(){
     setProjectData((prevData)=>{
       return{
@@ -56,7 +76,6 @@ function App() {
     })
 
   }
-  console.log(projectData)
   const selectedProject = projectData.projects.find((project)=>project.id===projectData.selectedProject)
 
   let displayComponent;
@@ -67,7 +86,7 @@ function App() {
     displayComponent=<NewProject onCancelProject={handleCancelProject} onNewProjectData={handleNewProjectData}></NewProject>
   }
   else{
-    displayComponent=<ProjectDetail onDelete={handleProjectDeletion} project={selectedProject}></ProjectDetail>
+    displayComponent=<ProjectDetail projects={projectData} tasks={projectData.tasks} onAddTask={handleAddTask} onDeleteTask={handleDeleteTask} onDelete={handleProjectDeletion} project={selectedProject}></ProjectDetail>
   }
   return (
     <main className="h-screen my-8 flex gap-8">
