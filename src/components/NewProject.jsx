@@ -42,11 +42,11 @@ export default function NewProject({onNewProjectData,onCancelProject}) {
                 <Button onClick={handleProjectDetails}>Save</Button>
             </li>
         </menu>
-      <p>
+      <div>
         <Input ref={title} label="title" />
         <Input ref={description} label="description" textarea />
         <Input ref={dueDate} label="due date" type="date"/>
-      </p>
+      </div>
     </div>
     </>
   )
