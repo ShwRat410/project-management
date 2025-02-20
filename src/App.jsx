@@ -27,7 +27,14 @@ function App() {
     })
   }
 
-  function handleDeleteTask(){}
+  function handleDeleteTask(id){
+    setProjectData((prevData)=>{
+      return{
+        ...prevData,
+        tasks:prevData.tasks.filter((task)=>task.taskId!==id)
+      }
+    })
+  }
 
   function handleProjectData(){
     setProjectData((prevData)=>{

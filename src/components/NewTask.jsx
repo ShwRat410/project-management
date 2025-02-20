@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Input from './Input'
 import Button from './Button'
 
-export default function NewTask({onAddTask,onDeleteTask}) {
+export default function NewTask({onAddTask}) {
 
   const[enteredTask,setEnteredTask]=useState('')
 

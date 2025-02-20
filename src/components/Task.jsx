@@ -18,7 +18,7 @@ export default function Task({projects,tasks,onAddTask,onDeleteTask}) {
                 return(
                     <li key={task.taskId}>
                         <span>{task.text}</span>
-                        <Button>Clear</Button>
+                        <Button onClick={()=>onDeleteTask(task.taskId)}>Clear</Button>
                     </li>
             )})
             }
